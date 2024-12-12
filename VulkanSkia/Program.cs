@@ -49,7 +49,7 @@ using (var grContext = GRContext.CreateVulkan(new GRVkBackendContext
                        return VulkanNative.vkGetDeviceProcAddr(device, nameAddr.StringPtr);
                    }
 
-                   return IntPtr.Zero;
+                   return VulkanNative.vkGetInstanceProcAddr(vkInstance!.Value.Handle, nameAddr.StringPtr);
                }
            })
        }))
